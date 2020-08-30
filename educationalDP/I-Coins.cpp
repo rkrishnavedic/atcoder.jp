@@ -15,9 +15,15 @@ int32_t main(){
     
     dp[0]=1;
     
-    for(int i=0;i<n;i++){
+    for(int i=1;i<=n;i++){
         double ph;cin>>ph;
-        for(int j=i+1;j>=0;j--){
+        //input p_h its head probability of the i_th coin, then with i_th coin we can be sure upto dp[i] only 
+        //That's why we compute from i=0...upto i_th then,
+        // let say we know the answer upto i-1 th coin, then for i_th one we can make the
+        //case j>0:  dp[j]=dp[j-1]*(ph) + dp[j]*(1-ph);
+        // case j=0: dp[j]=dp[j]*(1-ph).. only 
+        
+        for(int j=i;j>=0;j--){
             dp[j]=(j==0? 0: dp[j-1]*ph)+dp[j]*(1-ph);
         }
     }
