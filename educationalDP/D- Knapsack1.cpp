@@ -5,7 +5,7 @@ using namespace std;
 
 void maxself(int &a, int b) {a=max(a,b);}
 
-int main(){
+int32_t main(){
     int n,w;cin>>n>>w;
     vector<int> dp(w+1);
     //dp[i] is the maximum total value of the items with total weight <=i
